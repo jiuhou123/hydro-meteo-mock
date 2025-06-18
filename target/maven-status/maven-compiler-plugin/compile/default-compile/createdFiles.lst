@@ -1,0 +1,5 @@
+com\example\hydrometeomock\HydroMeteoMockApplication.class
+com\example\hydrometeomock\model\BaseEntity.class
+com\example\hydrometeomock\config\OpenApiConfig.class
+com\example\hydrometeomock\service\BaseService.class
+com\example\hydrometeomock\controller\BaseController.class
