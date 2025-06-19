@@ -57,3 +57,25 @@ docker run -d -p 11096:11096 --name hydro-meteo-mock hydro-meteo-mock:latest
 
 ---
 如需自定义端口或外部配置，请修改 application.yml 和 Dockerfile 中的端口配置。 
+
+
+
+
+
+
+
+**docker** load -i hydro-meteo-mock.tar
+
+*# 运行*
+
+**HOST_IP改成本地IP**
+
+docker run -d -p 11096:11096 -e HOST_IP=192.168.1.100 --name hydro-meteo-mock hydro-meteo-mock:latest
+
+
+
+
+
+接口需先调用**寻址接口**获取到服务的ip和port，然后再调用气象水文的接口
+
+ip和port就取数组的第一个元素即可

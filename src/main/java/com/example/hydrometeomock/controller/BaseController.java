@@ -33,12 +33,15 @@ public class BaseController {
         AddressResponse resp = new AddressResponse();
         // 第一个真实数据
         AddressResponse.DataItem dataItem1 = new AddressResponse.DataItem();
-        try {
-            String ip = java.net.InetAddress.getLocalHost().getHostAddress();
-            dataItem1.setIp(ip);
-        } catch (Exception e) {
-            dataItem1.setIp("");
+        String ip = System.getenv("HOST_IP");
+        if (ip == null || ip.isEmpty()) {
+            try {
+                ip = java.net.InetAddress.getLocalHost().getHostAddress();
+            } catch (Exception e) {
+                ip = "";
+            }
         }
+        dataItem1.setIp(ip);
         AddressResponse.PortInfo portInfo1 = new AddressResponse.PortInfo();
         portInfo1.setPort(11096);
         AddressResponse.PortInfo portInfo1Fake = new AddressResponse.PortInfo();
